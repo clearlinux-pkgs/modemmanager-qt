@@ -5,11 +5,11 @@
 # Source0 file verified with key 0x58D0EE648A48B3BB (faure@kde.org)
 #
 Name     : modemmanager-qt
-Version  : 5.57.0
-Release  : 15
-URL      : https://download.kde.org/stable/frameworks/5.57/modemmanager-qt-5.57.0.tar.xz
-Source0  : https://download.kde.org/stable/frameworks/5.57/modemmanager-qt-5.57.0.tar.xz
-Source99 : https://download.kde.org/stable/frameworks/5.57/modemmanager-qt-5.57.0.tar.xz.sig
+Version  : 5.58.0
+Release  : 16
+URL      : https://download.kde.org/stable/frameworks/5.58/modemmanager-qt-5.58.0.tar.xz
+Source0  : https://download.kde.org/stable/frameworks/5.58/modemmanager-qt-5.58.0.tar.xz
+Source99 : https://download.kde.org/stable/frameworks/5.58/modemmanager-qt-5.58.0.tar.xz.sig
 Summary  : Qt wrapper for ModemManager DBus API
 Group    : Development/Tools
 License  : LGPL-2.1
@@ -40,6 +40,7 @@ Requires: modemmanager-qt-lib = %{version}-%{release}
 Requires: modemmanager-qt-data = %{version}-%{release}
 Provides: modemmanager-qt-devel = %{version}-%{release}
 Requires: modemmanager-qt = %{version}-%{release}
+Requires: modemmanager-qt = %{version}-%{release}
 
 %description dev
 dev components for the modemmanager-qt package.
@@ -64,14 +65,14 @@ license components for the modemmanager-qt package.
 
 
 %prep
-%setup -q -n modemmanager-qt-5.57.0
+%setup -q -n modemmanager-qt-5.58.0
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1557042977
+export SOURCE_DATE_EPOCH=1557771025
 mkdir -p clr-build
 pushd clr-build
 export AR=gcc-ar
@@ -86,7 +87,7 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1557042977
+export SOURCE_DATE_EPOCH=1557771025
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/modemmanager-qt
 cp COPYING.LIB %{buildroot}/usr/share/package-licenses/modemmanager-qt/COPYING.LIB
@@ -154,7 +155,7 @@ popd
 
 %files lib
 %defattr(-,root,root,-)
-/usr/lib64/libKF5ModemManagerQt.so.5.57.0
+/usr/lib64/libKF5ModemManagerQt.so.5.58.0
 /usr/lib64/libKF5ModemManagerQt.so.6
 
 %files license
