@@ -5,14 +5,14 @@
 # Source0 file verified with key 0x58D0EE648A48B3BB (faure@kde.org)
 #
 Name     : modemmanager-qt
-Version  : 5.67.0
-Release  : 26
-URL      : https://download.kde.org/stable/frameworks/5.67/modemmanager-qt-5.67.0.tar.xz
-Source0  : https://download.kde.org/stable/frameworks/5.67/modemmanager-qt-5.67.0.tar.xz
-Source1  : https://download.kde.org/stable/frameworks/5.67/modemmanager-qt-5.67.0.tar.xz.sig
+Version  : 5.68.0
+Release  : 27
+URL      : https://download.kde.org/stable/frameworks/5.68/modemmanager-qt-5.68.0.tar.xz
+Source0  : https://download.kde.org/stable/frameworks/5.68/modemmanager-qt-5.68.0.tar.xz
+Source1  : https://download.kde.org/stable/frameworks/5.68/modemmanager-qt-5.68.0.tar.xz.sig
 Summary  : Qt wrapper for ModemManager DBus API
 Group    : Development/Tools
-License  : LGPL-2.1
+License  : GPL-3.0 LGPL-2.1
 Requires: modemmanager-qt-data = %{version}-%{release}
 Requires: modemmanager-qt-lib = %{version}-%{release}
 Requires: modemmanager-qt-license = %{version}-%{release}
@@ -65,15 +65,15 @@ license components for the modemmanager-qt package.
 
 
 %prep
-%setup -q -n modemmanager-qt-5.67.0
-cd %{_builddir}/modemmanager-qt-5.67.0
+%setup -q -n modemmanager-qt-5.68.0
+cd %{_builddir}/modemmanager-qt-5.68.0
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1581282355
+export SOURCE_DATE_EPOCH=1584302751
 mkdir -p clr-build
 pushd clr-build
 # -Werror is for werrorists
@@ -90,10 +90,11 @@ make  %{?_smp_mflags}  VERBOSE=1
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1581282355
+export SOURCE_DATE_EPOCH=1584302751
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/modemmanager-qt
-cp %{_builddir}/modemmanager-qt-5.67.0/COPYING.LIB %{buildroot}/usr/share/package-licenses/modemmanager-qt/01a6b4bf79aca9b556822601186afab86e8c4fbf
+cp %{_builddir}/modemmanager-qt-5.68.0/COPYING.LIB %{buildroot}/usr/share/package-licenses/modemmanager-qt/01a6b4bf79aca9b556822601186afab86e8c4fbf
+cp %{_builddir}/modemmanager-qt-5.68.0/LICENSES/LicenseRef-KDE-Accepted-GPL.txt %{buildroot}/usr/share/package-licenses/modemmanager-qt/7d9831e05094ce723947d729c2a46a09d6e90275
 pushd clr-build
 %make_install
 popd
@@ -103,7 +104,7 @@ popd
 
 %files data
 %defattr(-,root,root,-)
-/usr/share/qlogging-categories5/modemmanager-qt.categories
+/usr/share/qlogging-categories5/modemmanagerqt.categories
 
 %files dev
 %defattr(-,root,root,-)
@@ -154,13 +155,13 @@ popd
 /usr/lib64/cmake/KF5ModemManagerQt/KF5ModemManagerQtTargets-relwithdebinfo.cmake
 /usr/lib64/cmake/KF5ModemManagerQt/KF5ModemManagerQtTargets.cmake
 /usr/lib64/libKF5ModemManagerQt.so
-/usr/lib64/qt5/mkspecs/modules/qt_ModemManagerQt.pri
 
 %files lib
 %defattr(-,root,root,-)
-/usr/lib64/libKF5ModemManagerQt.so.5.67.0
+/usr/lib64/libKF5ModemManagerQt.so.5.68.0
 /usr/lib64/libKF5ModemManagerQt.so.6
 
 %files license
 %defattr(0644,root,root,0755)
 /usr/share/package-licenses/modemmanager-qt/01a6b4bf79aca9b556822601186afab86e8c4fbf
+/usr/share/package-licenses/modemmanager-qt/7d9831e05094ce723947d729c2a46a09d6e90275
